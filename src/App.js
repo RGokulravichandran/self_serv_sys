@@ -61,10 +61,10 @@ useEffect(()=>(
 
   return (
     <div>
-      <h4>Datas in api</h4>
+      {/* <h4>Datas in api</h4>
         {user.map((userObj) => (
             <li key={userObj.id}>{userObj.name}</li>
-          ))}
+          ))} */}
     </div>
     
   );
