@@ -14,11 +14,11 @@ import * as yup from "yup";
 import { useFormik } from 'formik';
 
 
-
+//main app function
 export default function App() {
 
   const [mode, setMode] = useState("light")
-
+//using meterial UI implementing theme
   const themeCtx = createTheme({
     palette: {
       mode: mode,
@@ -35,7 +35,7 @@ export default function App() {
       elevation={4}>
     <div className="App">
       <div className='navTheme'><Theme mode={mode} setMode={setMode}/></div>
-
+//routers for routes to pages
   <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/register' element={<Register />}/>
@@ -48,6 +48,7 @@ export default function App() {
   );
 }
 
+//fetching datas from mock api function
 function FetchApi({username}) { 
   const [user, setUser] = useState([]);
   const apiGet = () => {
@@ -70,7 +71,7 @@ useEffect(()=>(
 }
 
 
-
+//for successfull login function
 function Success(){
   return(
     <div className='successpage'>
@@ -78,7 +79,7 @@ function Success(){
     </div>
   )
 }
-
+//for failed login function
 function Failure(){
   return(
     <div className='failurepage'>
@@ -86,9 +87,9 @@ function Failure(){
     </div>
   )
 }
-
+// main login page as home function
 function Home(){
-  const [username, setUserName] = useState("");
+  const [username, setUserName] = useState("");  
       const navigate = useNavigate();
       const {handleSubmit, values, handleChange, handleBlur, touched, errors} = useFormik({
         initialValues:{
@@ -115,6 +116,7 @@ function Home(){
   )
 }
 
+//theme function
 function Theme({mode, setMode}){
   return(
   <Button sx ={{marginLeft:"auto"}} 
@@ -126,14 +128,14 @@ function Theme({mode, setMode}){
   )
 }
 
-
+// condition for form validation using formik and yup
 const formValidationShema = yup.object({
   name:yup.string().min(4, "Need a bigger User Name").required("Why not fill this feild"),
   email:yup.string().min(6, "Need a bigger email").required("Why not fill this feild"),
   password:yup.string().min(8, "Need a bigger password").required("Why not fill this feild"),
 });
 
-
+//register function to perfome post operation in api
 function Register(){
 const newUser=(values)=>{
 fetch("https://63678f29f5f549f052d7b19a.mockapi.io/users",{
@@ -157,7 +159,6 @@ fetch("https://63678f29f5f549f052d7b19a.mockapi.io/users",{
       newUser(values)
     },
   })
-
   return(
     <form onSubmit={handleSubmit} className='userLoginForm'>
     <h1>Registration</h1>
@@ -172,6 +173,7 @@ fetch("https://63678f29f5f549f052d7b19a.mockapi.io/users",{
     <Link onClick={()=>navigate("/")} component="button" variant="body2">Sign in</Link></form>
   )}
 
+// this is bot ui call function 
 function ForgotUserName() {
   return(
     
@@ -180,7 +182,7 @@ function ForgotUserName() {
     </div>
   )}
 
-
+// page not found function for error action
 function PageNotFound(){
   return(
     <h1>Page Not Found</h1>
