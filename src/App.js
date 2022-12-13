@@ -35,7 +35,7 @@ export default function App() {
       elevation={4}>
     <div className="App">
       <div className='navTheme'><Theme mode={mode} setMode={setMode}/></div>
-//routers for routes to pages
+{/* routers for routes to pages */}
   <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/register' element={<Register />}/>
@@ -47,8 +47,7 @@ export default function App() {
     </ThemeProvider>
   );
 }
-
-//fetching datas from mock api function
+  // fetching datas from mock api function
 function FetchApi({username}) { 
   const [user, setUser] = useState([]);
   const apiGet = () => {
@@ -62,6 +61,7 @@ useEffect(()=>(
 
   return (
     <div>
+      <h4>Datas in api</h4>
         {user.map((userObj) => (
             <li key={userObj.id}>{userObj.name}</li>
           ))}
