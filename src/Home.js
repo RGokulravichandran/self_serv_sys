@@ -5,11 +5,11 @@ import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
 import { useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
-import { formValidationShema } from './App';
 import { FetchApi } from "./FetchApi";
+import * as yup from "yup";
 
 // condition for form validation using formik and yup
-export const formValidationShema = yup.object({
+const formValidation = yup.object({
   name:yup.string().min(4, "Need a bigger User Name").required("Why not fill this feild"),
 });
 
@@ -21,7 +21,7 @@ export function Home() {
     initialValues: {
       name: ""
     },
-    validationSchema: formValidationShema,
+    validationSchema: formValidation,
     onSubmit: (userdata) => {
       setUserName(userdata.name);
     },

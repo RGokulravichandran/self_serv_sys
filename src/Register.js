@@ -4,10 +4,10 @@ import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
 import { useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
-import { formValidationShema } from './App';
+import * as yup from "yup";
 
 // condition for form validation using formik and yup
-export const formValidationShema = yup.object({
+ const formValidationShema = yup.object({
   name:yup.string().min(4, "Need a bigger User Name").required("Why not fill this feild"),
   email:yup.string().min(6, "Need a bigger email").required("Why not fill this feild"),
   password:yup.string().min(8, "Need a bigger password").required("Why not fill this feild"),

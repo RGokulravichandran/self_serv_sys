@@ -4,7 +4,6 @@ import {useState} from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import {Route, Routes} from 'react-router-dom';
-import * as yup from "yup";
 import { Theme } from './Theme';
 import { PageNotFound } from './PageNotFound';
 import { ForgotUserName } from './ForgotUserName';
