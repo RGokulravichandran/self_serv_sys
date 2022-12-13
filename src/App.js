@@ -51,28 +51,25 @@ export default function App() {
 function FetchApi({username}) { 
   const [user, setUser] = useState([]);
   const apiGet = () => {
-    return fetch("https://63678f29f5f549f052d7b19a.mockapi.io/users")
+    fetch("https://63678f29f5f549f052d7b19a.mockapi.io/users")
           .then((response) => response.json())
-          .then((data) => setUser(data));
+          .then((json) => {console.log(json); setUser(json)});
   }
+useEffect(()=>(
+  apiGet
+),[])
+
   return (
     <div>
-      <h1>User List</h1>
-      {username}
-      <ul>
-      
         {user.map((userObj) => (
             <li key={userObj.id}>{userObj.name}</li>
           ))}
-      </ul>
     </div>
     
   );
 }
 
-const formValidation = yup.object({
-  name:yup.string().min(4, "Need a bigger User Name").required("Why not fill this feild"),
-});
+
 
 function Success(){
   return(
@@ -97,7 +94,7 @@ function Home(){
         initialValues:{
           name:""
         },
-        validationSchema: formValidation,
+        validationSchema: formValidationShema,
         onSubmit:(userdata)=>{setUserName(userdata.name)
         },
       })
@@ -108,12 +105,12 @@ function Home(){
       <TextField name='name' id="outlined-basic" type='text' label="User Name" variant="outlined" value={values.name} onChange={handleChange} onBlur={handleBlur}/>
       {touched.name && errors.name ? errors.name:null}
       <Button variant="contained" type='Submit' >Submit</Button>
-      </form>
       <div className='linkTag'>
-      <FetchApi username={username}/>
         <Link component="button" variant="body2">Forgot User Name?</Link>
         <Link onClick={()=>navigate("/register")} component="button" variant="body2">Register</Link>
       </div>
+      </form>
+      <FetchApi username={username}/>
     </div>
   )
 }
@@ -172,17 +169,8 @@ fetch("https://63678f29f5f549f052d7b19a.mockapi.io/users",{
     <TextField name='password' id="outlined-basic" type='password'label="Password" variant="outlined" value={values.password} onChange={handleChange} onBlur={handleBlur}/>
     {touched.password && errors.password ? errors.password:null}
     <Button variant="contained" type='Submit' >Submit</Button>
-
-    <Link
-    onClick={()=>navigate("/")}
-      component="button"
-      variant="body2"
-    >
-      Sign in
-    </Link>
-  </form>
-  )
-}
+    <Link onClick={()=>navigate("/")} component="button" variant="body2">Sign in</Link></form>
+  )}
 
 function ForgotUserName() {
   return(
@@ -190,9 +178,7 @@ function ForgotUserName() {
     <div class="botui-app-container" id="help-bot">
       {/* <bot-ui></bot-ui> */}
     </div>
-
-  );
-}
+  )}
 
 
 function PageNotFound(){
