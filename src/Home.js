@@ -47,7 +47,7 @@ export function Home() {
         </CardActions>
         
           <div className='linkTag'>
-            <Link component="button" variant="body2">Forgot User Name?</Link>
+            <Link onClick={() => navigate("/bot")} component="button" variant="body2">Forgot User Name?</Link>
             <Link onClick={() => navigate("/register")} component="button" variant="body2">Register</Link>
           </div>
       </CardContent>
