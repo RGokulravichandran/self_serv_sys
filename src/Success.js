@@ -1,10 +1,25 @@
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
+import Button from '@mui/material/Button';
+
+
+
 
 //for successfull login function
-function Success() {
+
+
+export default function Success({name}) {
+
+  const navigate = useNavigate();
+
   return (
     <div className='successpage'>
-      <h1>Successfull login</h1>
+      {/* {console.log(`Successfull login ${name}`)} */}
+      <h1>Welcome {name}</h1>
+      <Button variant="contained" onClick={() => navigate("/")}type='button'>LogOut</Button>
+
     </div>
   );
 }
+
+

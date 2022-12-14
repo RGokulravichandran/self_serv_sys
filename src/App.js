@@ -9,7 +9,8 @@ import { PageNotFound } from './PageNotFound';
 import { ForgotUserName } from './ForgotUserName';
 import { Home } from './Home';
 import { Register } from './Register';
-
+import  Success  from './Success'
+import Failure from './Failure'
 
 //main app function
 export default function App() {
@@ -38,6 +39,9 @@ export default function App() {
       <Route path='/register' element={<Register />}/>
       <Route path='/forgot' element={<ForgotUserName />}/>
       <Route path='*' element={<PageNotFound />}/>
+      <Route path='/success' element={<Success />}/>
+      <Route path='/LoginFailed' element={<Failure />}/>
+
 </Routes>
     </div>
     </Paper>
