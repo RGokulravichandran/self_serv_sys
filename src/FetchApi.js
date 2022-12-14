@@ -5,10 +5,8 @@ import { useNavigate } from 'react-router-dom';
 
 // fetching datas from mock api function
 
-
 export function FetchApi({ loginusername, loginuserpassword }) {
   const [user, setUser] = useState([]);
-  const [matchedname , setmatchedname]=useState("");
   const apiGet = () => {
     fetch("https://63678f29f5f549f052d7b19a.mockapi.io/users")
       .then((response) => response.json())

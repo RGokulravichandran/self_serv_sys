@@ -36,7 +36,6 @@ export default function App() {
               <Routes>
                   <Route path='/' element={<Home/>}/>
                   <Route path='/register' element={<Register />}/>
-                  <Route path='/forgot' element={<ForgotUserName />}/>
                   <Route path='*' element={<PageNotFound />}/>
                   <Route path='/success' element={<Success />}/>
                   <Route path='/LoginFailed' element={<Failure />}/>
