@@ -10,6 +10,18 @@
   align-items: center;
 }
 
+.successpage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.failurepage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .linkTag {
   width: 400px;
   display: flex;
