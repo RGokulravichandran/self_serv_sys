@@ -7,7 +7,7 @@ export default function Failure() {
   const navigate = useNavigate();
   return (
     <div className='failurepage'>
-      <h1>User Name Invalid</h1>
+      <h1>User Name Invalid or Password</h1>
       <Button variant="contained" onClick={() => navigate("/")} type='button'>back </Button>  
     </div>
   );
