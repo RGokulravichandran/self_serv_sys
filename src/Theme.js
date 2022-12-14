@@ -9,17 +9,8 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 
-//theme function
-// export function Theme({ mode, setMode }) {
-//   return (
-//     <Button sx={{ marginLeft: "auto" }}
-//       startIcon={mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
-//       color="inherit"
-//       onClick={() => setMode(mode === "dark" ? "light" : "dark")}>
-//       {mode === "dark" ? "light" : "dark"} mode
-//     </Button>
-//   );
-// }
+//implementing  theme function using meterial UI
+
 export default function Theme({ mode, setMode }) {
   return (
     <Box sx={{ flexGrow: 1 }}>

@@ -2,11 +2,11 @@ import { useEffect } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBot } from 'botui'
 import { BotUI, BotUIMessageList, BotUIAction } from '@botui/react'
+import App from './App'
 
 const myBot = createBot()
 
 export default function Bot() {
-
 
     useEffect(() => {
       myBot

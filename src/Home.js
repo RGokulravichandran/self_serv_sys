@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { FetchApi } from "./FetchApi";
 import * as yup from "yup";
-import Success from './Success'
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -54,8 +53,6 @@ export function Home() {
       </CardContent>
       </form>
       { username === null ? console.log('1') : <FetchApi loginusername={username} loginuserpassword={userpassword} /> }
-
-      {/* <FetchApi loginusername={username} loginuserpassword={userpassword} */}
     </Card>
     </div>
   );

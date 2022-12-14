@@ -4,6 +4,8 @@ import  Success  from './Success'
 import { useNavigate } from 'react-router-dom';
 
 // fetching datas from mock api function
+
+
 export function FetchApi({ loginusername, loginuserpassword }) {
   const [user, setUser] = useState([]);
   const [matchedname , setmatchedname]=useState("");
@@ -20,12 +22,5 @@ export function FetchApi({ loginusername, loginuserpassword }) {
     <div>
       {/* <h4>Datas in api</h4> */}
       {user.map((userObj) => ((userObj.name===loginusername && userObj.password===loginuserpassword) ? (<Success name={userObj.name} /> , navigate("/success")) : navigate("/LoginFailed")))}
-        {/* <Success name={matchedname} /> */}
     </div>
   )}
-
-// {for(i=0;i<=userObj.length; i++){
-//   if (user.name[i]==={username})(
-//     <Success />
-//   )
-// }}
